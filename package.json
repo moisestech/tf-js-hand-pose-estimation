@@ -1,7 +1,7 @@
 {
   "name": "tf-js-hand-pose-estimation",
   "version": "1.0.0",
-  "description": "tf-js-hand-pose-estimation",
+  "description": "Tensorflow.js React Pose Estimation",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,8 +11,8 @@
     "url": "git+https://github.com/moisestech/tf-js-hand-pose-estimation.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Moises Sanabria",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/moisestech/tf-js-hand-pose-estimation/issues"
   },
