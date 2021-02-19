@@ -9,7 +9,7 @@
 - [React Webcam](https://www.npmjs.com/package/react-webcam)
 - [Canvas API](https://www.w3schools.com/tags/canvas_arc.asp)
 - [Tensorflow @2.8.5](https://www.tensorflow.org/js/models)
-- [Pose Model BodyPix](https://www.npmjs.com/package/@tensorflow-models/body-pix)
+- [HandPose Model](https://www.npmjs.com/package/@tensorflow-models/handpose)
 - [ES8](https://www.w3schools.com/js/js_2018.asp)
 - [PropTypes](https://www.npmjs.com/package/prop-types)
 
@@ -17,9 +17,12 @@
 
 Coming Soon!
 
-## 📚 HOW-TO
+## 🚀 Start
 
 To start app: `npm start`
+
+## 📚 HOW-TO
+
 For additional info click [here]()
 
 ## 🗺 URL Tree
