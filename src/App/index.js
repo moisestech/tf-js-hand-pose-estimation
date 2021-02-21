@@ -19,10 +19,11 @@ import * as handpose from "@tensorflow-models/handpose";
 // drawings x, y points on canvas
 import { drawHand } from "../utils";
 
-export default function App() {
-  let project_name = "Tensorflow.js React Hand-Pose Estimation";
+export default function App({project_name = "Tensorflow.js React Hand-Pose Estimation"}) {
 
-  console.log(project_name);
+  return (
+    <h1>{project_name}</h1>
+  )
 }
 
 // video: https://www.youtube.com/watch?v=f7uBsb-0sGQ
