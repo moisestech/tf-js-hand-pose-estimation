@@ -20,9 +20,17 @@ import * as handpose from "@tensorflow-models/handpose";
 import { drawHand } from "../utils";
 
 export default function App({project_name = "Tensorflow.js React Hand-Pose Estimation"}) {
-
   const webCamRef = useRef(null);
   const canvasRef = useRef(null);
+
+  // Load handpose model
+  const runHandpose = async () => {
+    const net = await handpose.load();
+    console.log('Handpose model loaded!');
+  }
+
+  // inits model
+  runHandpose();
 
   return (
     <div clasName="App">
@@ -38,5 +46,5 @@ export default function App({project_name = "Tensorflow.js React Hand-Pose Estim
   )
 }
 
-// video: https://www.youtube.com/watch?v=f7uBsb-0sGQ
+// video: https://youtu.be/f7uBsb-0sGQ?t=783
 // code: https://github.com/nicknochnack/HandPoseDetection
