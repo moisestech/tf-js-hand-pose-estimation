@@ -154,7 +154,7 @@ const runHandpose = async () => {
   };
   ```
 
-## **8.** Draw Landmarks in Detect Function
+## **8.** **drawHand** Landmarks in Detect Function
 
   ```javascript
   // end of detect function in src/App/index.js
@@ -164,7 +164,7 @@ const runHandpose = async () => {
   drawHand(hand, ctx);
   ```
 
-## **9.** Draw Landmark mesh
+## **9.** **drawHand** Landmarks mesh
 
   ```javascript
   ```
