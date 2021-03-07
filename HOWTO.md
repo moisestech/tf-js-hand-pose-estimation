@@ -8,26 +8,87 @@
 ## **2.** Import dependencies
 
 - App/index.js
-  - `import * as bodypix` and `import * as tf`.
-  - `import {useRef} from 'react'`. [useRef link](https://reactjs.org/docs/hooks-reference.html#useref)
-    - help us reference our onscreen in DOM elements that keep state during the component lifecycle.
+  i. `import * as bodypix` and `import * as tf`.
+  ii. `import {useRef} from 'react'`. [useRef link](https://reactjs.org/docs/hooks-reference.html#useref)
+
+  - help us reference our onscreen in DOM elements that keep state during the component lifecycle.
 
 ## **3.** Setup webcam and canvas
 
-- App/index.js in `<header />` DOM element.
-  - `<Webcam className="react-webcam"/>` return webcam component.
-  - `<Canvas className="react-canvas" />` return canvas component.
+  i. App/index.js in `<header />` DOM element returns components.
+
+  ```javascript
+  // App () comp return function
+  return (
+    <Webcam className="react-webcam"/>
+    <Canvas className="react-canvas" />
+  )
+  ```
 
 ## **4.** Define references to those
 
-- App/index.js in `App()` component body.
-  - connect canvas and webcam components with `useRef`.
-  - `const webcamRef = useRef(null);`
-  - `const camvasRef = useRef(null);`
+  i. App/index.js in `App()` component body connect canvas and webcam components with `useRef`.
+
+  ```javascript
+  // App () function body
+  const webcamRef = useRef(null);
+  const canvasRef = useRef(null);
+  ```
 
 ## **5.** Load handpose
 
+i. async function **`runHandpose`** will perform hand detections using the **`webcamRef`**.
+
+```javascript
+const runHandpose = async () => {
+  const net = await handpose.load();
+  console.log('Handpose model loaded!');
+}
+```
+
 ## **6.** Detect function
+
+  **i.** async function **`detect`** runs when the app starts, goes ahead and detects our model and our webcam.
+
+  **ii.** **`if`** statement will check the **`webcamRef`** is defined with a **`readState`** of 4.
+
+  **iii.** Once **`webcamRef`** is ready, the const **`video`**, **`videoWidth`**, and **`videoHeight`** are defined from **`webcamRef.current.video`**.
+
+  **iv.** Width const **`video, videoWidth, videoHeight`** the width and height of the **`webcamRef`** and **`canvasRef`** are set.
+
+  **v.** async **`net.estimateHands(video)`** is stored in **`hand`** const which returns an **array** of **objects**.
+
+  ```javascript
+  const detect = async (net) => {
+    // Check data is available
+    if (
+      typeof webcamRef.current !== "undefined" &&
+      webcamRef.current !== null &&
+      webcamRef.current.video.readyState === 4
+    ) {
+      // Get Video Properties
+      const video = webcamRef.current.video;
+      const videoWidth = webcamRef.current.video.videoWidth;
+      const videoHeight = webcamRef.current.video.videoHeight;
+
+      // Set video width
+      webcamRef.current.video.width = videoWidth;
+      webcamRef.current.video.height = videoHeight;
+
+      // Set canvas height and width
+      canvasRef.current.width = videoWidth;
+      canvasRef.current.height = videoHeight;
+
+      // Make Detections
+      const hand = await net.estimateHands(video);
+      console.log(hand);
+
+      // Draw mesh
+      const ctx = canvasRef.current.getContext("2d");
+      drawHand(hand, ctx);
+    }
+  };
+  ```
 
 ## **7.** Drawing utilities
 
