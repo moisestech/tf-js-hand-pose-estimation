@@ -26,8 +26,13 @@ export default function App({project_name = "Tensorflow.js React Hand-Pose Estim
   // Load handpose model
   const runHandpose = async () => {
     const net = await handpose.load();
-    console.log('Handpose model loaded!');
-  }
+    console.log("Handpose model loaded.");
+
+    // run detect function on a specific basis near real-time
+    setInterval(() => {
+      detect(net);
+    }, 100);
+  };
 
   // sets canvas and webcamfor drawing
   const detect = async (net) => {
