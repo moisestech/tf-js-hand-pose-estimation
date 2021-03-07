@@ -61,14 +61,13 @@ For additional info click [here]()
 
 ## To-Do's
 
-1. Finnish Webpack Config
-2. Finnish Tutorial
-3. Finnish README.md page
-4. Finnish HOWTO.md page
-5. Add Logo
-6. Add WebApp Preview Gif
-7. Add File Diagram
-8. Add Babel Compilation
+1. Finnish README.md page
+2. Finnish HOWTO.md page
+3. State Machine Button Turning Model on and off
+4. Add Logo
+5. Add WebApp Preview Gif
+6. Add File Diagram
+7. Add Babel Compilation
 
 ---
 [Moises Sanabria](https://www.moises.tech/)
