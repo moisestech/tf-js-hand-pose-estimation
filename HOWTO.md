@@ -56,7 +56,7 @@ const runHandpose = async () => {
 
   **iv.** Width const **`video, videoWidth, videoHeight`** the width and height of the **`webcamRef`** and **`canvasRef`** are set.
 
-  **v.** async **`net.estimateHands(video)`** is stored in **`hand`** const which returns an **array** of **objects**.
+  **v.** await/async **`net.estimateHands(video)`** is stored in **`hand`** const which returns an **array** of **objects**.
 
   ```javascript
   const detect = async (net) => {
